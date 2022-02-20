@@ -24,10 +24,14 @@ pub enum Instructions {
 pub enum Token {
     // An instruction because, well, it's an instruction.
     Instruction,
-    // A label for identifying variables. You can call it an identifier if you want.
-    Label,
+
+    // A register for identifying registers. You can call it an identifier if you want.
+    Register,
+    Memory,
+
     // Hex code
     Value,
+
     // Empty for, well: Empty things.
     Empty,
 }

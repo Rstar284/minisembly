@@ -13,7 +13,14 @@ pub fn lex(line: &str) -> Vec<enums::Token> {
     let mut operations = Vec::new();
 
     for token in line.split_whitespace() {
-        if token 
+        if token == "MOV" {
+            println!("MOV");
+            operations.push(enums::Token::Instruction)
+        }else if token.starts_with("%") {
+            println!("Memory");
+            operations.push(enums::Token::Memory)
+        }
+
     }
 
     return operations;
@@ -35,7 +42,7 @@ pub fn run(line: &str) {
     let tokens = lex(line);
     let ast = parse(tokens);
 
-    println!("{:?}", ast);
+    //println!("{:?}", ast);
 }
 
 // Main function
