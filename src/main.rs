@@ -6,7 +6,6 @@ mod enums;
 // Variables
 // 8kb probably
 const MEM_SIZE: i64 = 8 * 8;
-static mut mem: Vec<i64> = vec![0, MEM_SIZE];
 
 // Lex to tokenize the input
 pub fn lex(line: &str) -> Vec<enums::Token> {
@@ -36,6 +35,7 @@ pub fn parse(lexed: Vec<enums::Token>) {
 
 // Compile function to turn the AST into a program
 pub fn compile(ast: &str) {
+    let mut mem: Vec<i64> = vec![0, MEM_SIZE];
     ast;
 }
 
