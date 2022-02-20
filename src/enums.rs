@@ -23,7 +23,7 @@ pub enum Instructions {
 
 pub enum Token {
     // An instruction because, well, it's an instruction.
-    Instruction,
+    Instruction(Instructions),
 
     // A register for identifying registers. You can call it an identifier if you want.
     Register,
