@@ -10,27 +10,13 @@ const MEM_SIZE: i64 = 8 * 8;
 
 // Lex to tokenize the input
 pub fn lex(line: &str) -> Vec<enums::Token> {
-    // tokens for iteration
-    let tokens = line.split_whitespace();
-    // ctokens to return
-    let mut ctokens: Vec<enums::Token> = Vec::new();
-    // iterate over tokens
-    for t in tokens {
-        // TODO: lex the tokens and store them in ctokens
-        // if it's a comment, break the entire statement
-        if t == ";" {
-            break;
-        }else if t == "MOV"{
-            ctokens.push(enums::Token::Instruction);
-        }
-        
-        else {
-            ctokens.push(enums::Token::Empty);
-        }
-        
+    let mut operations = Vec::new();
+
+    for token in line.split_whitespace() {
+        if token 
     }
-    // return the tokens
-    return ctokens;
+
+    return operations;
 }
 
 // Parser generates an AST based on the tokens
