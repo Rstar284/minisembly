@@ -1,6 +1,7 @@
 // Imports
 use std::io::Read;
 use std::fs::File;
+use std::env;
 mod enums;
 
 // Variables
@@ -19,7 +20,11 @@ pub fn lex(line: &str) -> Vec<enums::Token> {
         // if it's a comment, break the entire statement
         if t == ";" {
             break;
-        }else {
+        }else if t == "MOV"{
+            ctokens.push(enums::Token::Instruction);
+        }
+        
+        else {
             ctokens.push(enums::Token::Empty);
         }
         
@@ -49,8 +54,21 @@ pub fn run(line: &str) {
 
 // Main function
 fn main() {
-    let code = "MOV AL 61H\nMOV AH 6AH\nINT 21H\n; This is a comment\n";
-    let tokens = code.lines();
+    let args: Vec<String> = env::args().collect();
+
+    if args.len() != 2 {
+        println!("usage: minisembly <file.mini>");
+        std::process::exit(1);
+    }
+
+    let filename = &args[1];
+
+    // Read file
+    let mut file = File::open(filename).expect("File not found");
+    let mut source = String::new();
+    file.read_to_string(&mut source).expect("Could not read file");
+
+    let tokens = source.lines();
     for token in tokens {
         run(token);
     }

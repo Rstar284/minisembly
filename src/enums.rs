@@ -13,16 +13,16 @@ pub enum Instructions {
 
 pub enum Token {
     // An instruction because, well, it's an instruction.
-    Instruction(Instructions),
+    Instruction,
 
     // A label for identifying variables. You can call it an identifier if you want.
-    Label(String),
+    Label,
 
     // A number.
-    Number(i32),
+    Number,
 
     // Comments start with a ; and must be on a new line
-    Comment(String),
+    Comment,
 
     // Empty for, well: Empty things.
     Empty,
