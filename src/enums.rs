@@ -32,6 +32,12 @@ pub enum Token {
     // Hex code
     Value,
 
+    // A comment
+    Comment,
+
+    // Unknown token
+    Unknown,
+
     // Empty for, well: Empty things.
     Empty,
 }
